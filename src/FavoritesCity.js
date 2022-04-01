@@ -18,7 +18,7 @@ export default function FavoritesCityComp(props) {
   },[])
 
   return(
-    <div className="card md-4 input ">
+    <div className="card">
       <ImageIcon src={city.WeatherIcon}></ImageIcon>
       {city.LocalizedName} <br/>
       {city.Temperature.Metric.Value}° {city.Temperature.Metric.Unit}  <br/><br/>
