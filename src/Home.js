@@ -11,7 +11,7 @@ import defaultCity from './jsonFiles/defaultCity';
 
 
 function HomeComp() {
-  const API_KEY = 'GrflztxvjXBxxA94uOpKBdVK7GCocfzJ'; 
+  const API_KEY = 'tQFiilnk0y2Watr4o2YGTquLCjlxBZGG'; 
   const URL_AUTO = "http://dataservice.accuweather.com/locations/v1/cities/autocomplete/";
   const URL_CURRENT = "http://dataservice.accuweather.com/currentconditions/v1/";
   const URL_5days = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/";
