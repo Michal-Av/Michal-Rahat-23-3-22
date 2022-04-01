@@ -1,0 +1,134 @@
+h3{
+  padding-top: 10px;
+  text-align: center;
+}  
+
+.city{
+  width: 90%;
+  border: 1px solid black;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.favorite{
+  width: 90%;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+.suggestion{
+  cursor: pointer;
+  background-color: white;
+  border-right:  1px solid black;
+  border-left:  1px solid black;
+  border-bottom:  1px solid black;
+}
+
+.suggestion:hover{
+  background-color: gray;
+}
+
+.icon{
+  padding-top: 10px;  
+}
+
+
+.left{
+  width: 70%;
+  padding-top: 10px;
+  justify-self: end;
+}
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+}
+.space-between { 
+  justify-content: space-between; 
+}  
+  body{
+    overflow-x: hidden;
+  }
+  .App{
+    overflow-x: hidden;
+    width: 360px;
+    height: 550px;
+  }
+  .p_day{
+    width: 58px;
+    font-size: 21px;
+    margin: 0 auto;
+  }
+  .img{
+    position: relative;
+    right: 9px;
+  }
+
+@media (min-width: 601px){
+
+  .home {
+    width: 100%;
+    background: url('./images/sf01909585sm1.jpg') no-repeat fixed;
+    background-size:100% 100%;
+    /* text-align: center; */
+  /* width: 600px; */
+    /* margin: 0 auto; */
+    border-style: hidden;
+    box-shadow: 0px 0px 12px rgba(78, 70, 64, 0.164);
+    text-shadow: 0px 0px 5px rgba(78, 70, 64, 0.164);
+    border-radius: 15px;
+    /* margin-top: 20px; */
+
+  }
+  .maintxt{
+    font-size: 80px;
+    padding-top:5%;
+    padding-bottom:8%;
+    text-align: center;
+  }
+
+  .card{
+    width: 160px;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    padding-top:10%;
+    padding-bottom:10%;
+    margin: 15px;
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 600px){ 
+  .container header .header-nav-area #nav_container  {
+    display:flex;
+  }
+  .home {
+    width: 100%;
+    background: url('./images/sf01909585sm1.jpg') no-repeat fixed;
+    background-size:100% 100%;
+    border-style: hidden;
+    box-shadow: 0px 0px 12px rgba(78, 70, 64, 0.164);
+    text-shadow: 0px 0px 5px rgba(78, 70, 64, 0.164);
+    border-radius: 15px;
+    /* margin-top: 20px; */
+
+  }
+  .maintxt{
+    font-size: 60px;
+    padding-top:5%;
+    padding-bottom:8%;
+    text-align: center;
+  }
+  
+  .card{
+    /* width:110px; */
+    /* height: 90px; */
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 15px;
+    text-align: center;
+  }
+}
