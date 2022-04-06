@@ -7,11 +7,11 @@ import axios from 'axios';
 import CityComp from './City';
 import FavoritesComp from './Favorites';
 import defaultCity from './jsonFiles/defaultCity';
-// const API_KEY = '0r6bDyXeQJqMu2lkr3TraNZxdGcWrAbz' 'GrflztxvjXBxxA94uOpKBdVK7GCocfzJ' 'MG6mXoTaUgHbChoshaiF8Aiyf86rZoWN'; 
+// const API_KEY = '0r6bDyXeQJqMu2lkr3TraNZxdGcWrAbz' 'GrflztxvjXBxxA94uOpKBdVK7GCocfzJ' 'tQFiilnk0y2Watr4o2YGTquLCjlxBZGG' 'MG6mXoTaUgHbChoshaiF8Aiyf86rZoWN'; 
 
 
 function HomeComp() {
-  const API_KEY = 'tQFiilnk0y2Watr4o2YGTquLCjlxBZGG'; 
+  const API_KEY = '0r6bDyXeQJqMu2lkr3TraNZxdGcWrAbz'; 
   const URL_AUTO = "https://dataservice.accuweather.com/locations/v1/cities/autocomplete/";
   const URL_CURRENT = "https://dataservice.accuweather.com/currentconditions/v1/";
   const URL_5days = "https://dataservice.accuweather.com/forecasts/v1/daily/5day/";
