@@ -12,7 +12,7 @@ import defaultCity from './jsonFiles/defaultCity';
 
 function HomeComp() {
   const API_KEY = '0r6bDyXeQJqMu2lkr3TraNZxdGcWrAbz'; 
-  const URL_AUTO = "https://dataservice.accuweather.com/locations/v1/cities/autocomplete/";
+  const URL_AUTO = "https://cors-anywhere.herokuapp.com/https://dataservice.accuweather.com/locations/v1/cities/autocomplete/";
   const URL_CURRENT = "https://dataservice.accuweather.com/currentconditions/v1/";
   const URL_5days = "https://dataservice.accuweather.com/forecasts/v1/daily/5day/";
   const favorites = useSelector((state) => state.favorites);
