@@ -48,10 +48,7 @@ function HomeComp() {
     setText(text)
     if (text.length > 3) {
       // axios.get("http://localhost:8000/api/autocomplete/") 
-      axios.get(URL_AUTO, { headers: {"Access-Control-Allow-Origin": "*",
-                                      "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT",
-                                      "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization"} ,
-                            params: { apikey : API_KEY, q: text } })
+      axios.get(URL_AUTO, { params: { apikey : API_KEY, q: text } })
       .then(resp =>
         {
           setCities(resp.data);
