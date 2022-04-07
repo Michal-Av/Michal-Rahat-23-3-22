@@ -47,7 +47,7 @@ function HomeComp() {
     let matches = [];
     setText(text)
     if (text.length > 3) {
-      fetch('https://dataservice.accuweather.com/locations/v1/cities/autocomplete/?apikey=0r6bDyXeQJqMu2lkr3TraNZxdGcWrAbz&q=' + text , {
+      fetch('https://dataservice.accuweather.com/locations/v1/cities/autocomplete/?apikey=MG6mXoTaUgHbChoshaiF8Aiyf86rZoWN&q=' + text , {
   mode:'no-cors' // 'cors' by default
 })
 //         .then((resp) => {
