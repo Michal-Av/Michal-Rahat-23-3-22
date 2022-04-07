@@ -47,8 +47,14 @@ function HomeComp() {
     let matches = [];
     setText(text)
     if (text.length > 3) {
+      fetch('https://dataservice.accuweather.com/locations/v1/cities/autocomplete/?apikey=0r6bDyXeQJqMu2lkr3TraNZxdGcWrAbz&q=' + text)
+//         .then((resp) => {
+//     response.json().then((data) => {
+//         console.log(data);
+//     });
+// });
       // axios.get("http://localhost:8000/api/autocomplete/") 
-      axios.get(URL_AUTO, { params: { apikey : API_KEY, q: text } })
+//       axios.get(URL_AUTO, { params: { apikey : API_KEY, q: text } })
       .then(resp =>
         {
           setCities(resp.data);
