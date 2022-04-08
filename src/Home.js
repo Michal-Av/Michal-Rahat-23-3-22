@@ -7,14 +7,14 @@ import axios from 'axios';
 import CityComp from './City';
 import FavoritesComp from './Favorites';
 import defaultCity from './jsonFiles/defaultCity';
-// const API_KEY = '0r6bDyXeQJqMu2lkr3TraNZxdGcWrAbz' 'GrflztxvjXBxxA94uOpKBdVK7GCocfzJ' 'tQFiilnk0y2Watr4o2YGTquLCjlxBZGG' 'MG6mXoTaUgHbChoshaiF8Aiyf86rZoWN'; 
+// const API_KEY =  '0r6bDyXeQJqMu2lkr3TraNZxdGcWrAbz' 'GrflztxvjXBxxA94uOpKBdVK7GCocfzJ' 'tQFiilnk0y2Watr4o2YGTquLCjlxBZGG' 'MG6mXoTaUgHbChoshaiF8Aiyf86rZoWN'; 
 
 
 function HomeComp() {
-  const API_KEY = 'MG6mXoTaUgHbChoshaiF8Aiyf86rZoWN'; 
-  const URL_AUTO = "https://dataservice.accuweather.com/locations/v1/cities/autocomplete/";
-  const URL_CURRENT = "https://dataservice.accuweather.com/currentconditions/v1/";
-  const URL_5days = "https://dataservice.accuweather.com/forecasts/v1/daily/5day/";
+  const API_KEY = 'GrflztxvjXBxxA94uOpKBdVK7GCocfzJ'; 
+  const URL_AUTO = "http://dataservice.accuweather.com/locations/v1/cities/autocomplete/";
+  const URL_CURRENT = "http://dataservice.accuweather.com/currentconditions/v1/";
+  const URL_5days = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/";
   const favorites = useSelector((state) => state.favorites);
 
   const [cities, setCities] = useState([]);
@@ -44,19 +44,12 @@ function HomeComp() {
   }, [])
 
   useEffect( async() => {
+    if(!debouncedText) return;
     let matches = [];
     setText(text)
     if (text.length > 3) {
-      fetch('https://dataservice.accuweather.com/locations/v1/cities/autocomplete/?apikey=MG6mXoTaUgHbChoshaiF8Aiyf86rZoWN&q=' + text , {
-  mode:'no-cors' // 'cors' by default
-})
-//         .then((resp) => {
-//     response.json().then((data) => {
-//         console.log(data);
-//     });
-// });
-      // axios.get("http://localhost:8000/api/autocomplete/") 
-//       axios.get(URL_AUTO, { params: { apikey : API_KEY, q: text } })
+      axios.get('https://dataservice.accuweather.com/locations/v1/cities/autocomplete/?apikey=MG6mXoTaUgHbChoshaiF8Aiyf86rZoWN&q=' + text , 
+      { mode:'no-cors'})
       .then(resp =>
         {
           setCities(resp.data);
@@ -68,10 +61,9 @@ function HomeComp() {
         })
         .catch(error => {
           console.log(error.response);
-          // throw new Error(alert('Something went wrong'))
+          throw new Error(alert('Something went wrong'))
     });
     }
-   
   }, [debouncedText])
 
     useEffect( async() => {
@@ -93,14 +85,10 @@ function HomeComp() {
     }
     }, [currentCity])
 
-  const onChangeHandler = (text) =>{
+  const onSuggestHandler = (text) =>{
+    setSuggestions([]);
     setText(text);
     
-  }
-
-  const onSuggestHandler = (text) =>{
-    setText(text);
-    setSuggestions([]);
   }
 
 
@@ -122,7 +110,7 @@ function HomeComp() {
           value={text}
           onBlur={() => {
             // setTimeout(() =>{
-              // setSuggestions([]);
+            //   setSuggestions([]);
             // },100);
           }}
           placeholder="Please Enter your City.."
