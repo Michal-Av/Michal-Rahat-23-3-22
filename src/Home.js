@@ -69,13 +69,15 @@ function HomeComp() {
     useEffect( async() => {
       if(isChosen)
       {
-        axios.get(URL_CURRENT+currentCity.Key,{ mode:'no-cors' ,params: { apikey : API_KEY } })
+        axios.get(`https://dataservice.accuweather.com/currentconditions/v1/${currentCity.Key}?apikey=${API_KEY}, 
+      { mode:'no-cors'})
         .then(resp => { setDataCity({...resp.data[0], LocalizedName: currentCity.LocalizedName}) })
         .catch(error => {
           console.log(error.response)
           // throw new Error(alert('Something went wrong'))
         });
-        axios.get(URL_5days+currentCity.Key,{ mode:'no-cors' , params: { apikey : API_KEY } })
+        axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${currentCity.Key}?apikey=${API_KEY}, 
+      { mode:'no-cors'})
         .then(resp => { setfivenext(resp.data.DailyForecasts) 
         })
         .catch(error => {
