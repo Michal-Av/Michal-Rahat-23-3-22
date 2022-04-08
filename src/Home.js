@@ -11,7 +11,7 @@ import defaultCity from './jsonFiles/defaultCity';
 
 
 function HomeComp() {
-  const API_KEY = 'GrflztxvjXBxxA94uOpKBdVK7GCocfzJ'; 
+  const API_KEY = 'tQFiilnk0y2Watr4o2YGTquLCjlxBZGG'; 
   const URL_AUTO = "http://dataservice.accuweather.com/locations/v1/cities/autocomplete/";
   const URL_CURRENT = "http://dataservice.accuweather.com/currentconditions/v1/";
   const URL_5days = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/";
@@ -48,7 +48,7 @@ function HomeComp() {
     let matches = [];
     setText(text)
     if (text.length > 3) {
-      axios.get('https://dataservice.accuweather.com/locations/v1/cities/autocomplete/?apikey=MG6mXoTaUgHbChoshaiF8Aiyf86rZoWN&q=' + text , 
+      axios.get('https://dataservice.accuweather.com/locations/v1/cities/autocomplete/?apikey=tQFiilnk0y2Watr4o2YGTquLCjlxBZGG&q=' + text , 
       { mode:'no-cors'})
       .then(resp =>
         {
@@ -61,7 +61,7 @@ function HomeComp() {
         })
         .catch(error => {
           console.log(error.response);
-          throw new Error(alert('Something went wrong'))
+          // throw new Error(alert('Something went wrong'))
     });
     }
   }, [debouncedText])
@@ -69,15 +69,13 @@ function HomeComp() {
     useEffect( async() => {
       if(isChosen)
       {
-        axios.get(`https://dataservice.accuweather.com/currentconditions/v1/${currentCity.Key}?apikey=${API_KEY}, 
-      { mode:'no-cors'})
+        axios.get(URL_CURRENT+currentCity.Key,{ mode:'no-cors' ,params: { apikey : API_KEY } })
         .then(resp => { setDataCity({...resp.data[0], LocalizedName: currentCity.LocalizedName}) })
         .catch(error => {
           console.log(error.response)
           // throw new Error(alert('Something went wrong'))
         });
-        axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${currentCity.Key}?apikey=${API_KEY}, 
-      { mode:'no-cors'})
+        axios.get(URL_5days+currentCity.Key,{ mode:'no-cors' , params: { apikey : API_KEY } })
         .then(resp => { setfivenext(resp.data.DailyForecasts) 
         })
         .catch(error => {
