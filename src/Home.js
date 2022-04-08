@@ -11,7 +11,7 @@ import defaultCity from './jsonFiles/defaultCity';
 
 
 function HomeComp() {
-  const API_KEY = 'tQFiilnk0y2Watr4o2YGTquLCjlxBZGG'; 
+  const API_KEY = '0r6bDyXeQJqMu2lkr3TraNZxdGcWrAbz'; 
   const URL_AUTO = "https://dataservice.accuweather.com/locations/v1/cities/autocomplete/";
   const URL_CURRENT = "https://dataservice.accuweather.com/currentconditions/v1/";
   const URL_5days = "https://dataservice.accuweather.com/forecasts/v1/daily/5day/";
@@ -48,7 +48,7 @@ function HomeComp() {
     let matches = [];
     setText(text)
     if (text.length > 3) {
-      axios.get('https://dataservice.accuweather.com/locations/v1/cities/autocomplete/?apikey=tQFiilnk0y2Watr4o2YGTquLCjlxBZGG&q=' + text , 
+      axios.get('https://dataservice.accuweather.com/locations/v1/cities/autocomplete/?apikey=0r6bDyXeQJqMu2lkr3TraNZxdGcWrAbz&q=' + text , 
       { mode:'no-cors'})
       .then(resp =>
         {
