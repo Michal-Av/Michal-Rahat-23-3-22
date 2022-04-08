@@ -11,7 +11,7 @@ import defaultCity from './jsonFiles/defaultCity';
 
 
 function HomeComp() {
-  const API_KEY = 'MG6mXoTaUgHbChoshaiF8Aiyf86rZoWN'; 
+  const API_KEY = 'GrflztxvjXBxxA94uOpKBdVK7GCocfzJ'; 
   const URL_AUTO = "http://dataservice.accuweather.com/locations/v1/cities/autocomplete/";
   const URL_CURRENT = "http://dataservice.accuweather.com/currentconditions/v1/";
   const URL_5days = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/";
@@ -69,13 +69,13 @@ function HomeComp() {
     useEffect( async() => {
       if(isChosen)
       {
-        axios.get(URL_CURRENT+currentCity.Key,{ params: { apikey : API_KEY } })
+        axios.get(URL_CURRENT+currentCity.Key,{ mode:'no-cors' ,params: { apikey : API_KEY } })
         .then(resp => { setDataCity({...resp.data[0], LocalizedName: currentCity.LocalizedName}) })
         .catch(error => {
           console.log(error.response)
           // throw new Error(alert('Something went wrong'))
         });
-        axios.get(URL_5days+currentCity.Key,{ params: { apikey : API_KEY } })
+        axios.get(URL_5days+currentCity.Key,{ mode:'no-cors' , params: { apikey : API_KEY } })
         .then(resp => { setfivenext(resp.data.DailyForecasts) 
         })
         .catch(error => {
