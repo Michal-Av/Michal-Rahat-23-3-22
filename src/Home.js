@@ -43,28 +43,25 @@ function HomeComp() {
     defaultTelAviv();
   }, [])
 
-  useEffect( async() => {
-    if(!debouncedText) return;
-    let matches = [];
-    setText(text)
-    if (text.length > 3) {
-      axios.get('https://dataservice.accuweather.com/locations/v1/cities/autocomplete/?apikey=0r6bDyXeQJqMu2lkr3TraNZxdGcWrAbz&q=' + text , 
-      { mode:'no-cors'})
-      .then(resp =>
-        {
-          setCities(resp.data);
-          matches = cities.filter(city => { 
-            return city.Country.ID === "IL"
-            
-          })
-          setSuggestions(matches)
-        })
-        .catch(error => {
-          console.log(error.response);
-          // throw new Error(alert('Something went wrong'))
+ useEffect(async () => {
+  let matches = [];
+  if (text.length > 3) {
+    axios.get(URL_AUTO, {
+      params: { q: text },
+    })
+    .then(resp => {
+      setCities(resp.data);
+      matches = cities.filter(city => {
+        return city.Country.ID === "IL"
+      })
+      setSuggestions(matches);
+    })
+    .catch(error => {
+      console.log(error.response);
     });
-    }
-  }, [debouncedText])
+  }
+  setText(text);
+}, [debouncedText]);
 
     useEffect( async() => {
       if(isChosen)
